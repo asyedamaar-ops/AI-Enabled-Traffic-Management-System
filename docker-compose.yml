@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  traffic-core:
+    build: .
+    container_name: traffic_core
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./config:/app/config
+    devices:
+      - /dev/video0:/dev/video0   # camera passthrough
+    environment:
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
+
+  dashboard:
+    build: .
+    container_name: traffic_dashboard
+    command: streamlit run src/dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - traffic-core
+    restart: unless-stopped

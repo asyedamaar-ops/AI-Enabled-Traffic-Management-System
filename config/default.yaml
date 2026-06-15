@@ -1,0 +1,91 @@
+# ─────────────────────────────────────────────────
+#  AI-Enabled Traffic Management System
+#  Configuration File
+# ─────────────────────────────────────────────────
+#  All tunable parameters live here.
+#  No magic numbers in the source code.
+
+# ── Camera / Video Input ──────────────────────────
+video:
+  sources:
+    - id: 0        # use integer for webcam index, or a file path / RTSP URL
+    - id: 1
+    - id: 2
+    - id: 3
+  resolution: [1280, 720]
+  fps_capture: 30        # capture framerate from the camera
+  fps_process: 10        # rate at which frames are fed to the model
+
+# ── Audio Input ───────────────────────────────────
+audio:
+  device_index: null     # null = system default microphone
+  sample_rate: 44100     # Hz — standard for high-quality capture
+  clip_duration: 3       # seconds per analysis window
+  overlap: 1             # overlap between consecutive windows (seconds)
+  channels: 1
+  chunk_size: 1024
+
+# ── Traffic Signaling ─────────────────────────────
+signaling:
+  min_green_seconds: 10
+  max_green_seconds: 90
+  base_green_seconds: 30
+  min_red_seconds: 5
+  cycle_interval: 1.0    # seconds between density recalculations
+  yellow_duration: 3     # fixed yellow phase (seconds)
+
+# ── Detection Models ──────────────────────────────
+detection:
+  video:
+    ssd_model_path: "models/ssd_vehicle.pb"
+    ev_model_path: "models/densenet169_ev.h5"
+    confidence_threshold: 0.5
+    roi_margin: 0.05              # fraction of frame edge to ignore
+    max_vehicles_per_lane: 50     # used for normalising density score
+
+  audio:
+    model_path: "models/cnn_siren.h5"
+    confidence_threshold: 0.60
+    n_mfcc: 40                    # number of MFCC coefficients
+    n_fft: 2048
+    hop_length: 512
+
+# ── Ensemble Fusion ───────────────────────────────
+ensemble:
+  emergency_threshold: 0.85       # combined score that triggers green corridor
+
+  # Weights shift based on time of day and weather
+  weights:
+    day:
+      video: 0.60
+      audio: 0.40
+    night:
+      video: 0.35
+      audio: 0.65
+    adverse_weather:              # rain / fog override
+      video: 0.30
+      audio: 0.70
+
+  # Simple heuristic: 18:30–06:00 = night mode
+  night_start_hour: 18
+  night_end_hour: 6
+
+# ── Emergency Protocol ────────────────────────────
+emergency:
+  green_corridor_duration: 30     # seconds of clear path after detection
+  cooldown_seconds: 10            # min gap between successive emergency events
+  alert_sound: true               # play audio alert on dashboard
+
+# ── Dashboard ─────────────────────────────────────
+dashboard:
+  host: "0.0.0.0"
+  port: 8501
+  refresh_interval: 0.5           # seconds between UI updates
+  history_window: 300             # seconds of history shown on charts
+
+# ── Logging ───────────────────────────────────────
+logging:
+  level: "INFO"                   # DEBUG | INFO | WARNING | ERROR
+  log_to_file: true
+  log_dir: "logs/"
+  rotate_every_mb: 50
