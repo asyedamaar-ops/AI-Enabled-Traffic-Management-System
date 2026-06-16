@@ -13,7 +13,6 @@
 
 **Real-time, AI-powered traffic signal control with automatic emergency vehicle prioritization.**
 
-*Final Year Project — B.Tech CSE (AI & ML), SRM IST Chennai | AIoT Course (21CSE292P)*
 
 [Features](#-features) • [Architecture](#-architecture) • [Quickstart](#-quickstart) • [Results](#-results) • [Tech Stack](#-tech-stack)
 
@@ -308,21 +307,4 @@ pytest tests/ -v
 - [ ] Weather-aware automatic weight tuning
 - [ ] SUMO traffic simulator integration for large-scale testing
 
----
 
-## 👥 Team
-
-Built as a final year AIoT project at SRM IST Chennai (21CSE292P).
-
-- **[Syed Amaar Andrabi](https://github.com/asyedamaar-ops)** — AI/ML lead, system architecture, ensemble design
-- **Vishnu Prasad B** — Audio pipeline, CNN siren model
-- **Sanjai DL** — Signal controller, optimizer logic
-- **Sivimani S** — Dashboard, testing, Docker setup
-
-*Guided by Dr. Naga Malleswari TYJ, Associate Professor, Dept. of Networking & Communications, SRM IST Chennai*
-
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
