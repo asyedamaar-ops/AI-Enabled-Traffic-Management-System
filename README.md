@@ -13,7 +13,6 @@
 
 **Real-time, AI-powered traffic signal control with automatic emergency vehicle prioritization.**
 
-*Final Year Project — B.Tech CSE (AI & ML), SRM IST Chennai | AIoT Course (21CSE292P)*
 
 [Features](#-features) • [Architecture](#-architecture) • [Quickstart](#-quickstart) • [Results](#-results) • [Tech Stack](#-tech-stack)
 
