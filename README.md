@@ -8,6 +8,9 @@
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
+[![GitHub](https://img.shields.io/badge/GitHub-asyedamaar--ops-181717?style=flat-square&logo=github)](https://github.com/asyedamaar-ops)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Syed%20Amaar%20Andrabi-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/syed-amaar-andrabi-9a1bb8259/)
+
 **Real-time, AI-powered traffic signal control with automatic emergency vehicle prioritization.**
 
 *Final Year Project — B.Tech CSE (AI & ML), SRM IST Chennai | AIoT Course (21CSE292P)*
@@ -83,7 +86,7 @@ This project replaces static signal timing with a live, vision-and-audio-driven 
 ### Option A — Docker (Recommended)
 
 ```bash
-git clone https://github.com/yourusername/aiot-traffic-management.git
+git clone https://github.com/asyedamaar-ops/aiot-traffic-management.git
 cd aiot-traffic-management
 docker-compose up
 ```
@@ -94,7 +97,7 @@ The dashboard opens at `http://localhost:8501`.
 
 ```bash
 # 1. Clone and enter
-git clone https://github.com/yourusername/aiot-traffic-management.git
+git clone https://github.com/asyedamaar-ops/aiot-traffic-management.git
 cd aiot-traffic-management
 
 # 2. Create virtual environment
@@ -301,3 +304,21 @@ pytest tests/ -v
 - [ ] Weather-aware automatic weight tuning
 - [ ] SUMO traffic simulator integration for large-scale testing
 
+---
+
+## 👥 Team
+
+Built as a final year AIoT project at SRM IST Chennai (21CSE292P).
+
+- **[Syed Amaar Andrabi](https://github.com/asyedamaar-ops)** — AI/ML lead, system architecture, ensemble design
+- **Vishnu Prasad B** — Audio pipeline, CNN siren model
+- **Sanjai DL** — Signal controller, optimizer logic
+- **Sivimani S** — Dashboard, testing, Docker setup
+
+*Guided by Dr. Naga Malleswari TYJ, Associate Professor, Dept. of Networking & Communications, SRM IST Chennai*
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
