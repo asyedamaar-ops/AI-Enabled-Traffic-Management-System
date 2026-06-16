@@ -82,7 +82,7 @@ This project replaces static signal timing with a live, vision-and-audio-driven 
 
 ## 🚀 Quickstart
 
-### Option A — Docker (Recommended)
+### Option A — Docker (Dashboard only, no hardware needed)
 
 ```bash
 git clone https://github.com/asyedamaar-ops/aiot-traffic-management.git
